@@ -33,11 +33,11 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 app.use(globalErrorHandler);
 
 //handle not found
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.status(404).json({
-    success: false,
-    message: 'Resource not found',
-  });
-});
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//   res.status(404).json({
+//     success: false,
+//     message: 'Resource not found',
+//   });
+// });
 
 export default app;
