@@ -4,6 +4,8 @@ import sendResponse from '../../utils/sendResponse';
 import { UserServices } from './user.service';
 
 const userRegister = catchAsync(async (req, res) => {
+  console.log(req.file, 'file');
+  console.log(req.body, 'body');
   const user = await UserServices.createUser({
     ...JSON.parse(req.body.data),
     profilePhoto: req.file?.path,
