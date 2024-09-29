@@ -4,7 +4,12 @@ import sendResponse from '../../utils/sendResponse';
 import { UserServices } from './user.service';
 
 const userRegister = catchAsync(async (req, res) => {
-  const user = await UserServices.createUser(req.body);
+  console.log(req.body);
+  console.log(req.file);
+  const user = await UserServices.createUser({
+    ...JSON.parse(req.body.data),
+    profilePhoto: req.file?.path,
+  });
 
   sendResponse(res, {
     success: true,
